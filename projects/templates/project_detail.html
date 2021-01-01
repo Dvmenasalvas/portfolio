@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_content %}
+<h1>{{ project.title }}</h1>
+<div class="row">
+    <div class="col-md-8">
+        <img src="{% static project.image %}" alt="" width="100%">
+    </div>
+    <div class="col-md-4">
+        <h5>About the project:</h5>
+        <p>{{ project.description }}</p>
+        <br>
+        <h5>Technology used:</h5>
+        <p>{{ project.technology }}</p>
+        {% if not project.demonstrationLink == '' %}
+            <a class="btn btn-primary" href={{project.demonstrationLink}} role="button">Demonstration</a>
+            <br><br>
+        {% endif %}
+        {% if not project.githubLink == '' %}
+            <a class="btn btn-secondary" href={{project.githubLink}} role="button">Github code</a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
